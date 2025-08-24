@@ -3,7 +3,7 @@ import Todo from "../models/todo.model.js";
 import { auth } from "../middleware/auth.js";
 const router = express.Router();
 
-// create new task (all roles)
+// create new task ( for all roles)
 router.post("/create", auth, async (req, res) => {
     try {
         const todo = new Todo({
