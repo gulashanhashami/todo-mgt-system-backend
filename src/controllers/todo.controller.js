@@ -22,12 +22,8 @@ router.post("/create", auth, async (req, res) => {
 // Others can view only their own tasks
 router.get("/list", auth, async (req, res) => {
     try {
-        let todos;
-        if (req.user.role === "admin") {
-            todos = await Todo.find().populate("userId", "name email role");
-        } else {
-            todos = await Todo.find({ userId: req.user.id });
-        }
+            let todos = await Todo.find({ userId: req.user.id });
+        
         res.json(todos);
     } catch (err) {
         res.status(500).json({ message: err.message });

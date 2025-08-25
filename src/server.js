@@ -19,7 +19,7 @@ const corsOPtions = {
 
 app.use(cors(corsOPtions));
 app.use("/auth", authRoutes);
-app.use("/user", userRoutes);
+app.use("/users", userRoutes);
 app.use("/todos", todoRoutes);
 
 const port = process.env.PORT;
